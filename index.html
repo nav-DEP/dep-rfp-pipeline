@@ -825,26 +825,20 @@ body {
         <h3>Delivery</h3>
         <div class="settings-row">
           <span class="label">Live dashboard</span>
-          <span class="value" id="settings-dashboard-status">Enabled (this view)</span>
+          <span class="value">Enabled (this view)</span>
         </div>
         <div class="settings-row">
-          <span class="label">Shared Google Sheet</span>
-          <span class="value" id="settings-sheet-status">Pending setup</span>
+          <span class="label">Team dashboard (GitHub Pages)</span>
+          <span class="value"><a href="https://nav-DEP.github.io/dep-rfp-pipeline/" target="_blank" style="color:var(--teal);">nav-DEP.github.io/dep-rfp-pipeline</a> &mdash; updates after every scan</span>
         </div>
         <div class="settings-row">
-          <span class="label">Daily email digest</span>
-          <span class="value" id="settings-email-status">Pending Gmail authorization and team list</span>
+          <span class="label">Google Drive (Excel)</span>
+          <span class="value"><a href="https://drive.google.com/file/d/1jwJ87EdeuouJo8mNaM8ba_FM7aW9mRqN" target="_blank" style="color:var(--teal);">DEP RFP Pipeline Dashboard</a> &mdash; shareable formatted spreadsheet</span>
         </div>
       </div>
 
     </div>
 
-    <div class="settings-edit-note">
-      <strong>How to change anything above:</strong><br><br>
-      <strong>Option 1 (easiest):</strong> Ask Claude in chat. For example: <em>"Add 'organizational development' and 'change management' as keywords."</em> or <em>"Drop the keyword 'coaching' and add 'team facilitation' instead."</em><br><br>
-      <strong>Option 2:</strong> Open <code>rfp-config.json</code> in your workspace folder and edit it directly. Save the file. The next daily scan picks up the changes automatically.<br><br>
-      <strong>Note:</strong> Adding a new source (a portal or aggregator we have not scraped before) may require Claude to write a small bit of code so the scan knows how to read that site. Adding keywords, sectors, states, or adjusting thresholds is a simple config edit.
-    </div>
   </div>
 </div>
 
