@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Due East RFP Pipeline</title>
+<style>
+:root {
+  color-scheme: light;
+  --teal: #24B3CB;
+  --teal-dark: #1A8FA3;
+  --gold: #FEC10D;
+  --grey: #58585B;
+  --grey-light: #8C8C8F;
+  --grey-bg: #F5F5F6;
+  --tint: #E8F7FA;
+  --white: #FFFFFF;
+  --border: #E1E5E8;
+  --success: #2E8B57;
+  --warning: #D97706;
+  --danger: #C0392B;
+  --font: "Century Gothic", "Futura BT", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--white);
+  color: var(--grey);
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 0;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  color: var(--white);
+  padding: 24px 32px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gold);
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--teal);
+  letter-spacing: -1px;
+}
+
+.brand-mark span { color: var(--gold); }
+
+.brand-text h1 {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.brand-text .sub {
+  font-size: 12px;
+  opacity: 0.9;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.last-scan {
+  text-align: right;
+  font-size: 12px;
+  opacity: 0.95;
+}
+
+.last-scan .label {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  font-size: 10px;
+}
+
+.last-scan .value {
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 10px 18px;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.tab:hover { color: var(--white); }
+
+.tab.active {
+  color: var(--white);
+  border-bottom-color: var(--gold);
+}
+
+.view { display: none; }
+.view.active { display: block; }
+
+/* Stats */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 24px 32px 0;
+}
+
+.stat {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--teal);
+  border-radius: 6px;
+  padding: 18px 20px;
+}
+
+.stat.gold { border-left-color: var(--gold); }
+.stat.warning { border-left-color: var(--warning); }
+.stat.success { border-left-color: var(--success); }
+
+.stat .label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--grey-light);
+  margin-bottom: 6px;
+}
+
+.stat .value {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--grey);
+  line-height: 1.1;
+}
+
+.stat .meta {
+  font-size: 11px;
+  color: var(--grey-light);
+  margin-top: 4px;
+}
+
+/* Filters */
+.filters {
+  background: var(--tint);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin: 24px 32px 0;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 120px;
+}
+
+.filter-group label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--grey);
+  font-weight: bold;
+}
+
+.filter-group select,
+.filter-group input {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--white);
+  color: var(--grey);
+  font-family: var(--font);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+.search-input { min-width: 240px; }
+
+.filter-spacer { flex: 1; }
+
+.filter-actions {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.btn {
+  padding: 9px 16px;
+  border: 1px solid var(--teal);
+  background: var(--white);
+  color: var(--teal);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: var(--font);
+}
+
+.btn:hover { background: var(--tint); }
+
+.btn-primary {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.btn-primary:hover { background: var(--teal-dark); }
+
+/* RFP List */
+.rfp-list {
+  padding: 24px 32px 32px;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.list-title {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--grey);
+}
+
+.sort-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--grey-light);
+}
+
+.sort-control select {
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--white);
+  font-family: var(--font);
+  font-size: 12px;
+}
+
+.rfp-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  position: relative;
+}
+
+.rfp-card:hover {
+  box-shadow: 0 4px 12px rgba(36, 179, 203, 0.12);
+  border-color: var(--teal);
+}
+
+.rfp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.rfp-title-block { flex: 1; }
+
+.rfp-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--grey);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.rfp-issuer {
+  font-size: 13px;
+  color: var(--grey-light);
+}
+
+.rfp-issuer .source {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  background: var(--grey-bg);
+  border-radius: 10px;
+  font-size: 11px;
+  color: var(--grey);
+}
+
+.rfp-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 64px;
+}
+
+.score-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--white);
+  background: var(--teal);
+}
+
+.score-circle.high { background: var(--success); }
+.score-circle.medium { background: var(--teal); }
+.score-circle.low { background: var(--grey-light); }
+
+.score-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--grey-light);
+  margin-top: 4px;
+}
+
+.rfp-meta {
+  display: flex;
+  gap: 14px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--grey);
+}
+
+.meta-item .meta-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--grey-light);
+}
+
+.meta-item .meta-value {
+  font-weight: bold;
+}
+
+.meta-value.value-amount { color: var(--success); }
+
+.meta-value.due-soon { color: var(--danger); }
+.meta-value.due-this-week { color: var(--warning); }
+
+.rfp-summary {
+  font-size: 13px;
+  color: var(--grey);
+  margin: 10px 0;
+  padding: 10px 12px;
+  background: var(--grey-bg);
+  border-left: 3px solid var(--gold);
+  border-radius: 3px;
+  line-height: 1.5;
+}
+
+.rfp-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: var(--tint);
+  color: var(--teal-dark);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tag.state { background: #FFF4D1; color: #8A6300; }
+.tag.sector { background: var(--tint); color: var(--teal-dark); }
+
+.rfp-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.status-pill {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.status-pill.new { background: var(--gold); color: #4A3800; }
+.status-pill.interested { background: #D6EFFC; color: #1A6B8C; }
+.status-pill.pursuing { background: #C5EBC5; color: #155A24; }
+.status-pill.passed { background: #E5E5E5; color: var(--grey-light); }
+
+.rfp-link {
+  color: var(--teal);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rfp-link:hover { color: var(--teal-dark); text-decoration: underline; }
+
+.rfp-link::after { content: " \2192"; }
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--grey-light);
+}
+
+.empty-state h3 {
+  color: var(--grey);
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Sample data notice */
+.sample-banner {
+  background: #FFF4D1;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 16px 32px 0;
+  font-size: 12px;
+  color: #8A6300;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sample-banner strong { font-weight: bold; }
+
+/* Settings View */
+.settings-wrapper { padding: 24px 32px 32px; }
+
+.settings-intro {
+  background: var(--tint);
+  border-left: 4px solid var(--teal);
+  padding: 14px 18px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+.settings-intro strong { color: var(--teal-dark); }
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.settings-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 18px 20px;
+}
+
+.settings-card.full { grid-column: 1 / -1; }
+
+.settings-card h3 {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--teal-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--tint);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.settings-card h3::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.settings-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 13px;
+  border-bottom: 1px dashed var(--border);
+}
+
+.settings-row:last-child { border-bottom: none; }
+
+.settings-row .label { color: var(--grey-light); }
+.settings-row .value { color: var(--grey); font-weight: bold; }
+
+.settings-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.settings-list .pill {
+  font-size: 12px;
+  padding: 4px 10px;
+  background: var(--tint);
+  color: var(--teal-dark);
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.settings-list .pill.exclude { background: #FFE5E5; color: #B82424; }
+.settings-list .pill.state { background: #FFF4D1; color: #8A6300; }
+
+.settings-sources li {
+  list-style: none;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 12px;
+  color: var(--grey);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.settings-sources li:last-child { border-bottom: none; }
+
+.settings-sources .source-name { font-weight: bold; }
+.settings-sources .source-meta { color: var(--grey-light); font-size: 11px; }
+
+.settings-edit-note {
+  background: var(--grey-bg);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+.settings-edit-note strong { color: var(--teal-dark); }
+.settings-edit-note code {
+  background: var(--white);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: "Menlo", "Monaco", monospace;
+  font-size: 11px;
+  color: var(--teal-dark);
+  border: 1px solid var(--border);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 24px 32px;
+  border-top: 1px solid var(--border);
+  margin-top: 24px;
+  font-size: 11px;
+  color: var(--grey-light);
+  letter-spacing: 0.5px;
+}
+
+.footer strong { color: var(--teal); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-row">
+    <div class="brand">
+      <div class="brand-mark">DE<span>P</span></div>
+      <div class="brand-text">
+        <h1>RFP Pipeline</h1>
+        <div class="sub">Due East Partners &middot; Business Development</div>
+      </div>
+    </div>
+    <div class="last-scan">
+      <div class="label">Last Scan</div>
+      <div class="value" id="last-scan-time">May 21, 2026 &mdash; 12:00 PM</div>
+    </div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" data-view="pipeline">Pipeline</button>
+    <button class="tab" data-view="settings">Settings</button>
+  </div>
+</div>
+
+<!-- PIPELINE VIEW -->
+<div class="view active" id="view-pipeline">
+
+  <div class="stats-row">
+    <div class="stat">
+      <div class="label">Open Opportunities</div>
+      <div class="value" id="stat-total">8</div>
+      <div class="meta">Matching all criteria</div>
+    </div>
+    <div class="stat gold">
+      <div class="label">New This Week</div>
+      <div class="value" id="stat-new">3</div>
+      <div class="meta">Posted in last 7 days</div>
+    </div>
+    <div class="stat warning">
+      <div class="label">Due Within 14 Days</div>
+      <div class="value" id="stat-due">2</div>
+      <div class="meta">Action needed soon</div>
+    </div>
+    <div class="stat success">
+      <div class="label">Pipeline Value</div>
+      <div class="value" id="stat-value">$1.29M</div>
+      <div class="meta">Combined estimated contract value</div>
+    </div>
+  </div>
+
+  <div class="filters">
+    <div class="filter-group">
+      <label>Search</label>
+      <input type="text" id="search" class="search-input" placeholder="Search title, issuer, keywords...">
+    </div>
+    <div class="filter-group">
+      <label>State</label>
+      <select id="filter-state">
+        <option value="">All states</option>
+        <option value="DC">DC</option>
+        <option value="MD">Maryland</option>
+        <option value="VA">Virginia</option>
+        <option value="DE">Delaware</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="Multi">Multi-state</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Sector</label>
+      <select id="filter-sector">
+        <option value="">All sectors</option>
+        <option value="Health & Human Services">Health & Human Services</option>
+        <option value="Economic Development">Economic Development</option>
+        <option value="Workforce & Education">Workforce & Education</option>
+        <option value="Environment">Environment</option>
+        <option value="Children, Youth & Families">Children, Youth & Families</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Status</label>
+      <select id="filter-status">
+        <option value="">All statuses</option>
+        <option value="new">New</option>
+        <option value="interested">Interested</option>
+        <option value="pursuing">Pursuing</option>
+        <option value="passed">Passed</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Min Match Score</label>
+      <select id="filter-score">
+        <option value="0">Any score</option>
+        <option value="60">60+</option>
+        <option value="75">75+</option>
+        <option value="85">85+</option>
+      </select>
+    </div>
+    <div class="filter-spacer"></div>
+    <div class="filter-actions">
+      <button class="btn" onclick="resetFilters()">Reset</button>
+    </div>
+  </div>
+
+  <div class="rfp-list">
+    <div class="list-header">
+      <div class="list-title">Matching Opportunities <span id="result-count" style="color: var(--grey-light); font-weight: normal; margin-left: 8px;">(8 of 8)</span></div>
+      <div class="sort-control">
+        <span>Sort by:</span>
+        <select id="sort">
+          <option value="score">Match score</option>
+          <option value="due">Due date</option>
+          <option value="posted">Recently posted</option>
+          <option value="value-desc">Value (high to low)</option>
+        </select>
+      </div>
+    </div>
+    <div id="rfp-container"></div>
+  </div>
+</div>
+
+<!-- SETTINGS VIEW -->
+<div class="view" id="view-settings">
+  <div class="settings-wrapper">
+    <div class="settings-intro">
+      <strong>Search configuration</strong> &middot; This is what the daily scan looks for. To change any of it, ask Claude in chat ("add 'organizational development' as a keyword") or edit <code style="background:white;padding:1px 5px;border-radius:3px;font-family:Menlo,monospace;font-size:11px;">rfp-config.json</code> directly in your workspace folder. Changes take effect on the next scan.
+    </div>
+
+    <div class="settings-grid">
+
+      <div class="settings-card">
+        <h3>Geography</h3>
+        <div class="settings-list" id="settings-states"></div>
+      </div>
+
+      <div class="settings-card">
+        <h3>Thresholds</h3>
+        <div class="settings-row">
+          <span class="label">Minimum contract value</span>
+          <span class="value" id="settings-min-value">$20,000</span>
+        </div>
+        <div class="settings-row">
+          <span class="label">Minimum match score</span>
+          <span class="value" id="settings-min-score">60</span>
+        </div>
+        <div class="settings-row">
+          <span class="label">First-run backward scan</span>
+          <span class="value" id="settings-backward">14 days</span>
+        </div>
+        <div class="settings-row">
+          <span class="label">Scan frequency</span>
+          <span class="value" id="settings-frequency">Daily, 6:00 AM local</span>
+        </div>
+      </div>
+
+      <div class="settings-card full">
+        <h3>Target Sectors</h3>
+        <div class="settings-list" id="settings-sectors"></div>
+      </div>
+
+      <div class="settings-card full">
+        <h3>Service Keywords (Include) <span style="font-weight:normal;color:var(--grey-light);font-size:11px;text-transform:none;letter-spacing:normal;">&mdash; an RFP must match at least one to be flagged</span></h3>
+        <div class="settings-list" id="settings-keywords-include"></div>
+      </div>
+
+      <div class="settings-card full">
+        <h3>Exclusion Keywords <span style="font-weight:normal;color:var(--grey-light);font-size:11px;text-transform:none;letter-spacing:normal;">&mdash; matching RFPs are filtered out</span></h3>
+        <div class="settings-list" id="settings-keywords-exclude"></div>
+      </div>
+
+      <div class="settings-card">
+        <h3>State and Local Portals</h3>
+        <ul class="settings-sources" id="settings-state-portals"></ul>
+      </div>
+
+      <div class="settings-card">
+        <h3>Foundation and Industry Sources</h3>
+        <ul class="settings-sources" id="settings-foundation-sources"></ul>
+      </div>
+
+      <div class="settings-card full">
+        <h3>Delivery</h3>
+        <div class="settings-row">
+          <span class="label">Live dashboard</span>
+          <span class="value" id="settings-dashboard-status">Enabled (this view)</span>
+        </div>
+        <div class="settings-row">
+          <span class="label">Shared Google Sheet</span>
+          <span class="value" id="settings-sheet-status">Pending setup</span>
+        </div>
+        <div class="settings-row">
+          <span class="label">Daily email digest</span>
+          <span class="value" id="settings-email-status">Pending Gmail authorization and team list</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="settings-edit-note">
+      <strong>How to change anything above:</strong><br><br>
+      <strong>Option 1 (easiest):</strong> Ask Claude in chat. For example: <em>"Add 'organizational development' and 'change management' as keywords."</em> or <em>"Drop the keyword 'coaching' and add 'team facilitation' instead."</em><br><br>
+      <strong>Option 2:</strong> Open <code>rfp-config.json</code> in your workspace folder and edit it directly. Save the file. The next daily scan picks up the changes automatically.<br><br>
+      <strong>Note:</strong> Adding a new source (a portal or aggregator we have not scraped before) may require Claude to write a small bit of code so the scan knows how to read that site. Adding keywords, sectors, states, or adjusting thresholds is a simple config edit.
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <strong>Due East Partners</strong> &middot; dueeastpartners.com &middot; RFP Pipeline v1.0
+</div>
+
+<script>
+// Embedded config (mirrors rfp-config.json in workspace folder)
+const CONFIG = {
+  version: "1.0",
+  last_updated: "2026-05-13",
+  search_criteria: {
+    states: ["DC", "MD", "VA", "DE", "PA"],
+    sectors: ["Health & Human Services", "Economic Development", "Workforce & Education", "Environment", "Children, Youth & Families"],
+    keywords_include: ["consulting", "advisory", "technical assistance", "evaluation", "grant writing", "grant management", "program design", "capacity building", "strategic planning", "leadership development", "coaching", "organizational assessment", "needs assessment"],
+    keywords_exclude: ["construction", "IT staffing", "software development", "hardware", "janitorial", "landscaping", "uniform", "supplies only", "goods only"],
+    min_contract_value: 20000,
+    min_match_score: 60
+  },
+  sources: {
+    state_local_portals: [
+      {name: "eMaryland Marketplace Advantage (eMMA)", state: "MD", priority: "high", notes: "Statewide aggregator"},
+      {name: "Virginia eVA", state: "VA", priority: "high"},
+      {name: "PA eMarketplace", state: "PA", priority: "high"},
+      {name: "Delaware MyMarketplace", state: "DE", priority: "high"},
+      {name: "DC Office of Contracting & Procurement", state: "DC", priority: "high"},
+      {name: "Fairfax County VA", state: "VA", priority: "high"},
+      {name: "City of Philadelphia", state: "PA", priority: "high"},
+      {name: "City of Baltimore", state: "MD", priority: "high"},
+      {name: "Montgomery County MD", state: "MD", priority: "high"},
+      {name: "Baltimore County MD", state: "MD", priority: "high"},
+      {name: "Anne Arundel County MD", state: "MD", priority: "high"},
+      {name: "Prince George's County MD", state: "MD", priority: "high"},
+      {name: "Howard County MD", state: "MD", priority: "high"},
+      {name: "Frederick County MD", state: "MD", priority: "high"},
+      {name: "Harford County MD", state: "MD", priority: "medium"},
+      {name: "Charles County MD", state: "MD", priority: "medium"},
+      {name: "Carroll County MD", state: "MD", priority: "medium"},
+      {name: "Calvert County MD", state: "MD", priority: "medium"},
+      {name: "St. Mary's County MD", state: "MD", priority: "medium"},
+      {name: "Washington County MD", state: "MD", priority: "medium"},
+      {name: "Cecil County MD", state: "MD", priority: "medium"},
+      {name: "Wicomico County MD", state: "MD", priority: "medium"},
+      {name: "Allegany County MD", state: "MD", priority: "low"},
+      {name: "Caroline County MD", state: "MD", priority: "low"},
+      {name: "Dorchester County MD", state: "MD", priority: "low"},
+      {name: "Garrett County MD", state: "MD", priority: "low"},
+      {name: "Kent County MD", state: "MD", priority: "low"},
+      {name: "Queen Anne's County MD", state: "MD", priority: "low"},
+      {name: "Somerset County MD", state: "MD", priority: "low"},
+      {name: "Talbot County MD", state: "MD", priority: "low"},
+      {name: "Worcester County MD", state: "MD", priority: "low"}
+    ],
+    foundation_aggregators: [
+      {name: "Candid / Foundation Directory", focus: "Foundation grants"},
+      {name: "Philanthropy News Digest", focus: "Nationwide RFPs"},
+      {name: "Chesapeake Bay Trust", focus: "Environment / Watershed"},
+      {name: "National Fish and Wildlife Foundation", focus: "Environment"},
+      {name: "HRSA Funding Opportunities", focus: "Health"},
+      {name: "SAMHSA Grant Announcements", focus: "Behavioral health"},
+      {name: "Annie E. Casey Foundation", focus: "Children, youth, families"},
+      {name: "Robert Wood Johnson Foundation", focus: "Health"}
+    ]
+  },
+  scan_schedule: { frequency: "daily", time_local: "06:00", backward_scan_days_on_first_run: 14 }
+};
+
+// Seed dataset (most recent scan on 2026-05-21, supplemental run at 12:00 PM)
+const SEED_DATA = {
+  last_updated: "2026-05-21T12:00:00Z",
+  rfps: [
+    { id: "rfp-001", title: "From Insight to Action: Health Equity Research That Meets This Moment", issuer: "Robert Wood Johnson Foundation", source: "RWJF Active Funding Opportunities", state: "Multi", sector: "Health & Human Services", value: 500000, due_date: "2026-07-27", posted_date: "2026-04-27", url: "https://www.rwjf.org/en/grants/active-funding-opportunities/2026/from-insight-to-action-health-equity-research-that-meets-this-moment.html", summary: "Robert Wood Johnson Foundation seeks proposals for community-rooted, action-oriented health equity research projects. The work involves equitable community partnerships, evaluation, and systems-change recommendations tied to RWJF's seven prioritized systems. Award size is up to $500,000 per project with full proposals due July 27, 2026.", matched_keywords: ["evaluation", "program design", "advisory"], match_score: 88, status: "new" },
+    { id: "rfp-002", title: "General Support for Program Evaluation and Related Services", issuer: "Enterprise Community Partners", source: "Enterprise Community Partners Grants & RFPs", state: "Multi", sector: "Economic Development", value: 250000, due_date: "2026-05-28", posted_date: "2026-04-30", url: "https://www.enterprisecommunity.org/grants-and-rfps/enterprise-initiates-general-support-program-evaluation-and-related-services", summary: "Enterprise Community Partners is selecting evaluation partners to conduct formative, process, and summative evaluations across its housing and community development portfolio. Scope also includes evaluation-related training, technical assistance, and capacity support for grantees and internal staff. Proposals are due May 28, 2026.", matched_keywords: ["evaluation", "technical assistance", "capacity building", "advisory"], match_score: 92, status: "new" },
+    { id: "rfp-003", title: "FY2026 Local Rehabilitation Agency (LRA) Request for Applications", issuer: "Maryland Department of Housing and Community Development", source: "Maryland DHCD", state: "MD", sector: "Economic Development", value: 150000, due_date: "2026-06-16", posted_date: "2026-05-07", url: "https://news.maryland.gov/dhcd/2026/05/07/public-notice-2026-local-rehabilitation-agency-lra-request-for-applications-rfa/", summary: "Maryland DHCD is accepting applications from Local Rehabilitation Agencies to administer community development and housing rehabilitation programs across the state. The work involves program design, technical assistance to local jurisdictions, and ongoing program management. Applications are due June 16, 2026 with projects beginning on or after July 1, 2026.", matched_keywords: ["program design", "technical assistance", "community development"], match_score: 78, status: "new" },
+    { id: "rfp-004", title: "Chesapeake Bay Innovative Nutrient and Sediment Reduction (INSR) Grants 2026", issuer: "National Fish and Wildlife Foundation", source: "NFWF Chesapeake Bay Stewardship Fund", state: "Multi", sector: "Environment", value: 250000, due_date: "2026-05-31", posted_date: "2026-04-09", url: "https://www.nfwf.org/programs/chesapeake-bay-stewardship-fund/chesapeake-bay-small-watershed-grants-2026-request", summary: "NFWF and EPA are funding watershed restoration and water quality projects across the Chesapeake Bay region through the Stewardship Fund. The opportunity supports planning, technical assistance, and on-the-ground restoration work that advances local capacity for nutrient and sediment reduction. Full proposals are due May 31, 2026.", matched_keywords: ["technical assistance", "capacity building"], match_score: 76, status: "new" },
+    { id: "rfp-005", title: "FY2026 Consolidated Request for Proposals (Housing and Community Development)", issuer: "DC Department of Housing and Community Development", source: "DC DHCD", state: "DC", sector: "Economic Development", value: 175000, due_date: "2026-06-30", posted_date: "2026-05-01", url: "https://dhcd.dc.gov/sites/default/files/dc/sites/dhcd/publication/attachments/2026%20Consolidated%20Request%20for%20Proposals%20(RFP)_0.pdf", summary: "DC DHCD is soliciting proposals for community development, housing rehabilitation, and neighborhood revitalization activities across the District. Scope includes program design, technical assistance to community partners, and strategic planning for neighborhood-level investments. Submissions are due June 30, 2026.", matched_keywords: ["program design", "technical assistance", "strategic planning", "community development"], match_score: 82, status: "new" },
+    { id: "rfp-006", title: "Virginia Board for People with Disabilities 2026 Competitive RFP", issuer: "Virginia Board for People with Disabilities", source: "Virginia Board for People with Disabilities", state: "VA", sector: "Health & Human Services", value: 100000, due_date: "2026-06-15", posted_date: "2026-04-01", url: "https://vbpd.virginia.gov/2026/03/2026-request-for-proposals/", summary: "The Virginia Board for People with Disabilities is funding projects that build community capacity and advance inclusion for Virginians with developmental disabilities. Total funding of up to $200,000 is available across one or more awards. The work supports program design, evaluation, and capacity building with community partners.", matched_keywords: ["capacity building", "evaluation", "program design"], match_score: 74, status: "new" },
+    { id: "rfp-007", title: "FY2027 Rural Maryland Council Grant Cycle (MAERDAF and RMPIF)", issuer: "Rural Maryland Council", source: "Maryland Governor's Office for Children Newsletter, May 12, 2026", state: "MD", sector: "Economic Development", value: 150000, due_date: "2026-07-10", posted_date: "2026-04-20", url: "https://rural.maryland.gov/grant-opportunities/", summary: "The Rural Maryland Council opened its FY2027 grant cycle, with a total of about $6 million across two programs. MAERDAF supports rural-serving nonprofits and community colleges providing technical assistance and capacity building for agriculture, small business, and rural economic development. RMPIF funds local and regional public and nonprofit organizations advancing rural economic and community development. Phase 1 Letters of Intent are due May 15, 2026 and Phase 2 full applications are due July 10, 2026.", matched_keywords: ["capacity building", "technical assistance", "community development", "advisory"], match_score: 75, status: "new" },
+    { id: "rfp-008", title: "FY2027 Infant and Early Childhood Mental Health Support Services Program", issuer: "Maryland State Department of Education, Division of Early Childhood", source: "Maryland Governor's Office for Children Newsletter, May 12, 2026", state: "MD", sector: "Children, Youth & Families", value: 100000, due_date: "2026-06-01", posted_date: "2026-05-01", url: "https://marylandpublicschools.org/about/Pages/OFPOS/GAC/IECMH/index.aspx", summary: "MSDE is accepting applications for grants that promote positive mental and behavioral health practices for children from birth through age five. The program builds the capacity of early care and education providers and family members through training, consultation, and family support services. Eligible applicants include community-based organizations and local education agencies. Applications are due June 1, 2026.", matched_keywords: ["capacity building", "program design", "technical assistance"], match_score: 72, status: "new" }
+  ]
+};
+
+let rfps = [];
+const filters = { search: "", state: "", sector: "", status: "", score: 0, sort: "score" };
+
+// Helpers
+function fmtMoney(n) {
+  if (n >= 1000000) return "$" + (n / 1000000).toFixed(2).replace(/\.?0+$/, "") + "M";
+  if (n >= 1000) return "$" + Math.round(n / 1000) + "K";
+  return "$" + n;
+}
+function fmtDate(s) {
+  const d = new Date(s + "T00:00:00");
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+}
+function daysUntil(s) {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const d = new Date(s + "T00:00:00");
+  return Math.round((d - today) / 86400000);
+}
+function dueClass(s) {
+  const d = daysUntil(s);
+  if (d <= 7) return "due-soon";
+  if (d <= 14) return "due-this-week";
+  return "";
+}
+function scoreClass(n) {
+  if (n >= 85) return "high";
+  if (n >= 70) return "medium";
+  return "low";
+}
+function statusLabel(s) {
+  return { new: "New", interested: "Interested", pursuing: "Pursuing", passed: "Passed" }[s] || s;
+}
+function cycleStatus(current) {
+  const order = ["new", "interested", "pursuing", "passed"];
+  return order[(order.indexOf(current) + 1) % order.length];
+}
+
+function applyFilters() {
+  let filtered = rfps.filter(r => {
+    if (filters.state && r.state !== filters.state) return false;
+    if (filters.sector && r.sector !== filters.sector) return false;
+    if (filters.status && r.status !== filters.status) return false;
+    if (filters.score && r.match_score < filters.score) return false;
+    if (filters.search) {
+      const q = filters.search.toLowerCase();
+      const hay = (r.title + " " + r.issuer + " " + r.summary + " " + r.matched_keywords.join(" ")).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  if (filters.sort === "score") filtered.sort((a, b) => b.match_score - a.match_score);
+  else if (filters.sort === "due") filtered.sort((a, b) => new Date(a.due_date) - new Date(b.due_date));
+  else if (filters.sort === "posted") filtered.sort((a, b) => new Date(b.posted_date) - new Date(a.posted_date));
+  else if (filters.sort === "value-desc") filtered.sort((a, b) => b.value - a.value);
+  return filtered;
+}
+
+function render() {
+  const filtered = applyFilters();
+  const container = document.getElementById("rfp-container");
+  document.getElementById("result-count").textContent = `(${filtered.length} of ${rfps.length})`;
+  if (filtered.length === 0) {
+    container.innerHTML = `<div class="empty-state"><h3>No matches with current filters</h3><p>Try resetting filters or broadening criteria.</p></div>`;
+    return;
+  }
+  container.innerHTML = filtered.map(r => {
+    const d = daysUntil(r.due_date);
+    const dueText = d < 0 ? "Past due" : d === 0 ? "Due today" : d === 1 ? "Due tomorrow" : `${d} days out`;
+    return `
+    <div class="rfp-card">
+      <div class="rfp-top">
+        <div class="rfp-title-block">
+          <div class="rfp-title">${r.title}</div>
+          <div class="rfp-issuer">${r.issuer}<span class="source">${r.source}</span></div>
+        </div>
+        <div class="rfp-score">
+          <div class="score-circle ${scoreClass(r.match_score)}">${r.match_score}</div>
+          <div class="score-label">Match</div>
+        </div>
+      </div>
+      <div class="rfp-meta">
+        <div class="meta-item"><span class="meta-label">Value</span><span class="meta-value value-amount">${fmtMoney(r.value)}</span></div>
+        <div class="meta-item"><span class="meta-label">Due</span><span class="meta-value ${dueClass(r.due_date)}">${fmtDate(r.due_date)} (${dueText})</span></div>
+        <div class="meta-item"><span class="meta-label">Posted</span><span class="meta-value">${fmtDate(r.posted_date)}</span></div>
+      </div>
+      <div class="rfp-summary">${r.summary}</div>
+      <div class="rfp-tags">
+        <span class="tag state">${r.state}</span>
+        <span class="tag sector">${r.sector}</span>
+        ${r.matched_keywords.map(k => `<span class="tag">${k}</span>`).join("")}
+      </div>
+      <div class="rfp-actions">
+        <span class="status-pill ${r.status}" onclick="toggleStatus('${r.id}')">${statusLabel(r.status)}</span>
+        <a href="${r.url}" target="_blank" class="rfp-link">View source</a>
+      </div>
+    </div>`;
+  }).join("");
+  updateStats();
+}
+
+function updateStats() {
+  document.getElementById("stat-total").textContent = rfps.length;
+  document.getElementById("stat-new").textContent = rfps.filter(r => daysUntil(r.posted_date) >= -7).length;
+  document.getElementById("stat-due").textContent = rfps.filter(r => { const d = daysUntil(r.due_date); return d >= 0 && d <= 14; }).length;
+  document.getElementById("stat-value").textContent = fmtMoney(rfps.reduce((s, r) => s + r.value, 0));
+}
+
+function toggleStatus(id) {
+  const r = rfps.find(x => x.id === id);
+  if (!r) return;
+  r.status = cycleStatus(r.status);
+  const overrides = JSON.parse(localStorage.getItem("rfp-status-overrides") || "{}");
+  overrides[id] = r.status;
+  localStorage.setItem("rfp-status-overrides", JSON.stringify(overrides));
+  render();
+}
+
+function loadStatusOverrides() {
+  const overrides = JSON.parse(localStorage.getItem("rfp-status-overrides") || "{}");
+  rfps.forEach(r => { if (overrides[r.id]) r.status = overrides[r.id]; });
+}
+
+function resetFilters() {
+  filters.search = ""; filters.state = ""; filters.sector = ""; filters.status = ""; filters.score = 0;
+  document.getElementById("search").value = "";
+  document.getElementById("filter-state").value = "";
+  document.getElementById("filter-sector").value = "";
+  document.getElementById("filter-status").value = "";
+  document.getElementById("filter-score").value = "0";
+  render();
+}
+
+// Tab switching
+document.querySelectorAll(".tab").forEach(t => {
+  t.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(x => x.classList.remove("active"));
+    document.querySelectorAll(".view").forEach(x => x.classList.remove("active"));
+    t.classList.add("active");
+    document.getElementById("view-" + t.dataset.view).classList.add("active");
+  });
+});
+
+// Filter handlers
+document.getElementById("search").addEventListener("input", e => { filters.search = e.target.value; render(); });
+document.getElementById("filter-state").addEventListener("change", e => { filters.state = e.target.value; render(); });
+document.getElementById("filter-sector").addEventListener("change", e => { filters.sector = e.target.value; render(); });
+document.getElementById("filter-status").addEventListener("change", e => { filters.status = e.target.value; render(); });
+document.getElementById("filter-score").addEventListener("change", e => { filters.score = parseInt(e.target.value); render(); });
+document.getElementById("sort").addEventListener("change", e => { filters.sort = e.target.value; render(); });
+
+// Populate Settings view
+function renderSettings() {
+  document.getElementById("settings-states").innerHTML =
+    CONFIG.search_criteria.states.map(s => `<span class="pill state">${s}</span>`).join("");
+  document.getElementById("settings-sectors").innerHTML =
+    CONFIG.search_criteria.sectors.map(s => `<span class="pill">${s}</span>`).join("");
+  document.getElementById("settings-keywords-include").innerHTML =
+    CONFIG.search_criteria.keywords_include.map(k => `<span class="pill">${k}</span>`).join("");
+  document.getElementById("settings-keywords-exclude").innerHTML =
+    CONFIG.search_criteria.keywords_exclude.map(k => `<span class="pill exclude">${k}</span>`).join("");
+  document.getElementById("settings-min-value").textContent = "$" + CONFIG.search_criteria.min_contract_value.toLocaleString();
+  document.getElementById("settings-min-score").textContent = CONFIG.search_criteria.min_match_score;
+  document.getElementById("settings-backward").textContent = CONFIG.scan_schedule.backward_scan_days_on_first_run + " days";
+  document.getElementById("settings-frequency").textContent = "Daily, " + CONFIG.scan_schedule.time_local + " local";
+
+  const priorityColor = {high: "#24B3CB", medium: "#D97706", low: "#8C8C8F"};
+  const priorityLabel = {high: "High", medium: "Medium", low: "Low"};
+  document.getElementById("settings-state-portals").innerHTML =
+    CONFIG.sources.state_local_portals.map(p => {
+      const badgeColor = priorityColor[p.priority] || "#8C8C8F";
+      const badge = p.priority ? `<span style="margin-left:8px;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:bold;background:${badgeColor}20;color:${badgeColor};">${priorityLabel[p.priority]}</span>` : "";
+      const note = p.notes ? `<span class="source-meta" style="margin-left:6px;">— ${p.notes}</span>` : "";
+      return `<li><span class="source-name">${p.name}</span>${badge}<span class="source-meta" style="margin-left:6px;">${p.state}</span>${note}</li>`;
+    }).join("");
+  document.getElementById("settings-foundation-sources").innerHTML =
+    CONFIG.sources.foundation_aggregators.map(p =>
+      `<li><span class="source-name">${p.name}</span><span class="source-meta">${p.focus}</span></li>`
+    ).join("");
+}
+
+async function initDashboard() {
+  try {
+    const response = await fetch('./rfp-data.json');
+    if (response.ok) {
+      const data = await response.json();
+      rfps = (data.rfps && data.rfps.length) ? data.rfps : SEED_DATA.rfps;
+      if (data.last_updated) {
+        const d = new Date(data.last_updated);
+        const dateStr = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        const timeStr = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+        document.getElementById('last-scan-time').textContent = dateStr + ' — ' + timeStr;
+      }
+    } else {
+      rfps = SEED_DATA.rfps;
+    }
+  } catch (e) {
+    rfps = SEED_DATA.rfps;
+  }
+  loadStatusOverrides();
+  render();
+  renderSettings();
+}
+initDashboard();
+</script>
+</body>
+</html>
