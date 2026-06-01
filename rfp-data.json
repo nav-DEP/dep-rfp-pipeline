@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-05-31T06:00:00Z",
-  "scan_count": 17,
+  "last_updated": "2026-06-01T06:00:00Z",
+  "scan_count": 18,
   "first_scan_completed": true,
-  "notes": "Daily scan May 31, 2026 (scan #17). 0 new opportunities added. No new qualifying RFPs found across web searches (all 5 states, all 5 sectors) or Gmail portal alerts (0 portal alert emails received). Leads reviewed and rejected today: Howard County MD (current solicitations are dental plan, printing, sewer, pest control -- no advisory/consulting match); Montgomery County DHHS open solicitations (direct service delivery contracts for behavioral health, meals, transportation -- not advisory/consulting); Baltimore MOED WIOA Youth Service Providers (deadline was March 20, 2026, past); Philadelphia CREJ Fund (grant for nonprofits, not a consulting RFP); CHRC April RFA (deadline April 23, 2026, past); NFWF/EPA Chesapeake Bay Small Watershed Grants (deadline April 2, 2026, past). CRITICAL DEADLINE ALERTS: rfp-004 (NFWF Chesapeake Bay INSR) due TODAY May 31 -- FINAL DAY. rfp-002 (Enterprise Community Partners Program Evaluation) deadline was May 28 -- NOW PAST (3 days ago). rfp-008 (MSDE Early Childhood Mental Health) due TOMORROW June 1. rfp-009 (Chesapeake Bay Trust Capacity Building) due June 10 -- 10 days. Pipeline holds at 9 active opportunities.",
+  "notes": "Daily scan June 1, 2026 (scan #18). 0 new opportunities added. No new qualifying RFPs found across web searches (all 5 states, all 5 sectors) or Gmail portal alerts (0 portal alert emails received). RHTP Tracker checked (Monday weekly scan): 65 open RHTP opportunities nationwide -- none in target states DC, MD, VA, DE, or PA. RHTP Monthly Brief (May 2026) forwarded by Bess: covers AK, AL, CO, CT, DE, GA, KY, MN, NE, ND, TX, WI -- no Mid-Atlantic consulting RFPs. Leads reviewed and rejected today: Garrett County RHTP Revenue Cycle Management RFP (deadline 5/31/2026, now past); Health Research Inc OHEHR 2026-02 Health Equity Consultants (NYS-based, not Mid-Atlantic); AFP DC Strategic Plan RFP (deadline March 2026, past); LASA Strategic Planning RFP (deadline Feb 20, 2026, past); Partnership for Better Health PA strategic plan (concluded March 2026); Maryland DHS (no open solicitations); Little Lights Urban Ministries DC (deadline March 6, 2026, past). CRITICAL DEADLINE ALERTS: rfp-008 (MSDE Early Childhood Mental Health) due TODAY June 1 -- FINAL DAY. rfp-009 (Chesapeake Bay Trust Capacity Building) due June 10 -- 9 days. rfp-006 (Virginia Board for People with Disabilities) due June 15 -- 14 days. rfp-003 (DHCD LRA) due June 16 -- 15 days. NOTE: rfp-002 (Enterprise Community Partners) deadline was May 28 -- NOW PAST (4 days ago). rfp-004 (NFWF INSR) deadline was May 31 -- NOW PAST (yesterday). Pipeline holds at 9 opportunities (2 with expired deadlines).",
   "rfps": [
     {
       "id": "rfp-001",
@@ -63,7 +63,7 @@
       "due_date": "2026-05-31",
       "posted_date": "2026-04-09",
       "url": "https://www.nfwf.org/programs/chesapeake-bay-stewardship-fund/chesapeake-bay-small-watershed-grants-2026-request",
-      "summary": "NFWF and EPA are funding watershed restoration and water quality projects across the Chesapeake Bay region through the Stewardship Fund. The opportunity supports planning, technical assistance, and on-the-ground restoration work that advances local capacity for nutrient and sediment reduction. Full proposals are due May 31, 2026 -- TODAY is the final deadline.",
+      "summary": "NFWF and EPA are funding watershed restoration and water quality projects across the Chesapeake Bay region through the Stewardship Fund. The opportunity supports planning, technical assistance, and on-the-ground restoration work that advances local capacity for nutrient and sediment reduction. Full proposals were due May 31, 2026 -- deadline has now passed.",
       "matched_keywords": ["technical assistance", "capacity building"],
       "match_score": 76,
       "status": "new"
@@ -127,7 +127,7 @@
       "due_date": "2026-06-01",
       "posted_date": "2026-05-01",
       "url": "https://marylandpublicschools.org/about/Pages/OFPOS/GAC/IECMH/index.aspx",
-      "summary": "MSDE is accepting applications for grants that promote positive mental and behavioral health practices for children from birth through age five. The program builds the capacity of early care and education providers and family members through training, consultation, and family support services. Eligible applicants include community-based organizations and local education agencies. Applications are due June 1, 2026 -- TOMORROW.",
+      "summary": "MSDE is accepting applications for grants that promote positive mental and behavioral health practices for children from birth through age five. The program builds the capacity of early care and education providers and family members through training, consultation, and family support services. Eligible applicants include community-based organizations and local education agencies. Applications are due June 1, 2026 -- TODAY IS THE FINAL DEADLINE.",
       "matched_keywords": ["capacity building", "program design", "technical assistance"],
       "match_score": 72,
       "status": "new"
