@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-05-21T12:00:00Z",
-  "scan_count": 8,
+  "last_updated": "2026-05-31T06:00:00Z",
+  "scan_count": 17,
   "first_scan_completed": true,
-  "notes": "Supplemental scan May 21, 2026 — full sweep using all 31 sources including 22 newly added Maryland county procurement portals. No new opportunities cleared the scoring threshold. Candidates reviewed and rejected: Charles County Youth Mentoring RFP 26-020 (posted Nov 28, 2025; deadline unconfirmed but almost certainly expired given 30-60 day typical timeline, likely Jan 2026); Allegany County Tourism Strategic Planning RFP (deadline was Nov 15, 2024, plan completed Aug 2025 — confirmed closed); Montgomery County HHS open solicitations are standing vendor pools with no fixed deadline, not competitive RFPs; Carroll County consulting RFPs had Feb 2026 deadlines (past); Calvert County economic development strategic plan was already awarded to Sage Policy Group; St. Mary's County nonprofit funding program deadline was Jan 12, 2026 (past) and requires 501c3 direct-service providers; Cecil County CAD evaluation consultant out-of-sector; Washington and Wicomico county portals use OpenGov/CivicEngage JavaScript rendering with no qualifying solicitations surfaced via web search; Howard County PlanetBids portal (JavaScript-rendered) shows open solicitations with May-June 2026 deadlines but no consulting/advisory categories confirmed. Pipeline holds steady at 8 active opportunities. URGENT: rfp-002 (Enterprise Community Partners Program Evaluation) due May 28 (7 days). rfp-004 (NFWF Chesapeake Bay INSR) due May 31 (10 days). rfp-008 (MSDE Early Childhood Mental Health) due June 1 (11 days).",
+  "notes": "Daily scan May 31, 2026 (scan #17). 0 new opportunities added. No new qualifying RFPs found across web searches (all 5 states, all 5 sectors) or Gmail portal alerts (0 portal alert emails received). Leads reviewed and rejected today: Howard County MD (current solicitations are dental plan, printing, sewer, pest control -- no advisory/consulting match); Montgomery County DHHS open solicitations (direct service delivery contracts for behavioral health, meals, transportation -- not advisory/consulting); Baltimore MOED WIOA Youth Service Providers (deadline was March 20, 2026, past); Philadelphia CREJ Fund (grant for nonprofits, not a consulting RFP); CHRC April RFA (deadline April 23, 2026, past); NFWF/EPA Chesapeake Bay Small Watershed Grants (deadline April 2, 2026, past). CRITICAL DEADLINE ALERTS: rfp-004 (NFWF Chesapeake Bay INSR) due TODAY May 31 -- FINAL DAY. rfp-002 (Enterprise Community Partners Program Evaluation) deadline was May 28 -- NOW PAST (3 days ago). rfp-008 (MSDE Early Childhood Mental Health) due TOMORROW June 1. rfp-009 (Chesapeake Bay Trust Capacity Building) due June 10 -- 10 days. Pipeline holds at 9 active opportunities.",
   "rfps": [
     {
       "id": "rfp-001",
@@ -31,7 +31,7 @@
       "due_date": "2026-05-28",
       "posted_date": "2026-04-30",
       "url": "https://www.enterprisecommunity.org/grants-and-rfps/enterprise-initiates-general-support-program-evaluation-and-related-services",
-      "summary": "Enterprise Community Partners is selecting evaluation partners to conduct formative, process, and summative evaluations across its housing and community development portfolio. Scope also includes evaluation-related training, technical assistance, and capacity support for grantees and internal staff. Proposals are due May 28, 2026.",
+      "summary": "Enterprise Community Partners is selecting evaluation partners to conduct formative, process, and summative evaluations across its housing and community development portfolio. Scope also includes evaluation-related training, technical assistance, and capacity support for grantees and internal staff. Proposals were due May 28, 2026 -- deadline has now passed.",
       "matched_keywords": ["evaluation", "technical assistance", "capacity building", "advisory"],
       "match_score": 92,
       "status": "new"
@@ -63,7 +63,7 @@
       "due_date": "2026-05-31",
       "posted_date": "2026-04-09",
       "url": "https://www.nfwf.org/programs/chesapeake-bay-stewardship-fund/chesapeake-bay-small-watershed-grants-2026-request",
-      "summary": "NFWF and EPA are funding watershed restoration and water quality projects across the Chesapeake Bay region through the Stewardship Fund. The opportunity supports planning, technical assistance, and on-the-ground restoration work that advances local capacity for nutrient and sediment reduction. Full proposals are due May 31, 2026.",
+      "summary": "NFWF and EPA are funding watershed restoration and water quality projects across the Chesapeake Bay region through the Stewardship Fund. The opportunity supports planning, technical assistance, and on-the-ground restoration work that advances local capacity for nutrient and sediment reduction. Full proposals are due May 31, 2026 -- TODAY is the final deadline.",
       "matched_keywords": ["technical assistance", "capacity building"],
       "match_score": 76,
       "status": "new"
@@ -111,7 +111,7 @@
       "due_date": "2026-07-10",
       "posted_date": "2026-04-20",
       "url": "https://rural.maryland.gov/grant-opportunities/",
-      "summary": "The Rural Maryland Council opened its FY2027 grant cycle, with a total of about $6 million across two programs. MAERDAF supports rural-serving nonprofits and community colleges providing technical assistance and capacity building for agriculture, small business, and rural economic development. RMPIF funds local and regional public and nonprofit organizations advancing rural economic and community development. Phase 1 Letters of Intent are due May 15, 2026 and Phase 2 full applications are due July 10, 2026.",
+      "summary": "The Rural Maryland Council opened its FY2027 grant cycle, with a total of about $6 million across two programs. MAERDAF supports rural-serving nonprofits and community colleges providing technical assistance and capacity building for agriculture, small business, and rural economic development. RMPIF funds local and regional public and nonprofit organizations advancing rural economic and community development. Phase 1 Letters of Intent were due May 15, 2026. Confirm whether LOI was submitted before pursuing the Phase 2 full application due July 10, 2026.",
       "matched_keywords": ["capacity building", "technical assistance", "community development", "advisory"],
       "match_score": 75,
       "status": "new"
@@ -127,9 +127,25 @@
       "due_date": "2026-06-01",
       "posted_date": "2026-05-01",
       "url": "https://marylandpublicschools.org/about/Pages/OFPOS/GAC/IECMH/index.aspx",
-      "summary": "MSDE is accepting applications for grants that promote positive mental and behavioral health practices for children from birth through age five. The program builds the capacity of early care and education providers and family members through training, consultation, and family support services. Eligible applicants include community-based organizations and local education agencies. Applications are due June 1, 2026.",
+      "summary": "MSDE is accepting applications for grants that promote positive mental and behavioral health practices for children from birth through age five. The program builds the capacity of early care and education providers and family members through training, consultation, and family support services. Eligible applicants include community-based organizations and local education agencies. Applications are due June 1, 2026 -- TOMORROW.",
       "matched_keywords": ["capacity building", "program design", "technical assistance"],
       "match_score": 72,
+      "status": "new"
+    },
+    {
+      "id": "rfp-009",
+      "title": "Federal Fiscal Compliance Training and Capacity Building Services",
+      "issuer": "Chesapeake Bay Trust",
+      "source": "Chesapeake Bay Trust Bidder Opportunities",
+      "state": "MD",
+      "sector": "Environment",
+      "value": 50000,
+      "due_date": "2026-06-10",
+      "posted_date": "2026-05-20",
+      "url": "https://cbtrust.org/grants/bidder-opportunities/",
+      "summary": "The Chesapeake Bay Trust seeks a contractor to design and deliver live federal fiscal compliance training and individualized capacity building support for its EPA-funded grantees across the Chesapeake Bay watershed. The work includes four interactive online training sessions on Uniform Guidance requirements and up to 40 hours of one-on-one coaching for smaller nonprofits and community organizations. The maximum contract value is $50,000 with potential for renewal over two additional years. Proposals are due June 10, 2026.",
+      "matched_keywords": ["capacity building", "technical assistance"],
+      "match_score": 70,
       "status": "new"
     }
   ]
