@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-06-03T09:15:00Z",
-  "scan_count": 20,
+  "last_updated": "2026-06-04T09:15:00Z",
+  "scan_count": 21,
   "first_scan_completed": true,
-  "notes": "Daily scan June 3, 2026 (scan #20). 0 new opportunities added. No new qualifying RFPs found across web searches (all 5 states, all 5 sectors) or Gmail. Web search reviewed: Enterprise Community Partners Southeast Market RFP (due June 26, geographic mismatch -- Southeast US region, not Mid-Atlantic, rejected); Delaware RHTP initial RFPs (service vendor roles not consulting, deadlines past); DowntownDC Economic Development Consultant (2023 posting, expired). Gmail: RHTP Daily Brief (June 2, 2026) received -- activity in Alaska, Arkansas, Colorado, Kentucky, Louisiana, South Dakota only, none in target states. New RHTP Opportunity alert for South Dakota EMS (state SD, out of geography, rejected). No portal alerts from eMMA, eVA, PA eMarketplace, or Delaware MyMarketplace. DEADLINE ALERTS: rfp-009 (Chesapeake Bay Trust Capacity Building) due June 10 -- 7 days URGENT. rfp-006 (Virginia Board for People with Disabilities) due June 15 -- 12 days. rfp-003 (DHCD LRA) due June 16 -- 13 days. rfp-005 (DC DHCD Housing) due June 30 -- 27 days. rfp-007 (Rural Maryland Council) due July 10 -- 37 days. rfp-001 (RWJF Health Equity) due July 27 -- 54 days. NOTE: rfp-008 (MSDE Early Childhood Mental Health) deadline was June 1 -- PAST. rfp-002 (Enterprise Community Partners) deadline was May 28 -- PAST. rfp-004 (NFWF INSR) deadline was May 31 -- PAST. Pipeline: 9 total opportunities (3 with expired deadlines, 6 active).",
+  "notes": "Daily scan June 4, 2026 (scan #21). 1 new opportunity added: rfp-010 Kent County MD Housing Study (due June 8 -- URGENT, 4 days). Web search leads reviewed and rejected: TEDCO Cybersecurity Workforce Strategic Plan Study (2023 RFP, closed); Legal Aid Justice Center VA Strategic Planning Consultant (deadline October 24, 2025, past); Garrett County Health Department RHTP Revenue Cycle Management TA (closed May 31, 2026); Maryland Human-Centered Design Training and Capacity-Building RFP (June 11 deadline, only visible behind RFPMart paywall, issuer and value unverifiable). Gmail: RHTP Daily Brief June 3 received -- major activity in OR, NV, TN, VT, OK, CO, TX; Maryland and Pennsylvania logged administrative site updates only, no new target-state opportunities. New RHTP Opportunity alert for Tennessee Perinatal and Pediatric Behavioral Health (out of geography, rejected). Bess forwarded June 1 brief flagging MD -- reviewed, administrative site update only. No portal alerts from eMMA, eVA, PA eMarketplace, or Delaware MyMarketplace. DEADLINE ALERTS: rfp-010 (Kent County Housing Study) due June 8 -- 4 days URGENT. rfp-009 (Chesapeake Bay Trust Capacity Building) due June 10 -- 6 days URGENT. rfp-006 (Virginia Board for People with Disabilities) due June 15 -- 11 days. rfp-003 (DHCD LRA) due June 16 -- 12 days. rfp-005 (DC DHCD Housing) due June 30 -- 26 days. rfp-007 (Rural Maryland Council) due July 10 -- 36 days. rfp-001 (RWJF Health Equity) due July 27 -- 53 days. NOTE: rfp-008 (MSDE Early Childhood Mental Health) deadline was June 1 -- PAST. rfp-002 (Enterprise Community Partners) deadline was May 28 -- PAST. rfp-004 (NFWF INSR) deadline was May 31 -- PAST. Pipeline: 10 total opportunities (3 with expired deadlines, 7 active).",
   "rfps": [
     {
       "id": "rfp-001",
@@ -146,6 +146,22 @@
       "summary": "The Chesapeake Bay Trust seeks a contractor to design and deliver live federal fiscal compliance training and individualized capacity building support for its EPA-funded grantees across the Chesapeake Bay watershed. The work includes four interactive online training sessions on Uniform Guidance requirements and up to 40 hours of one-on-one coaching for smaller nonprofits and community organizations. The maximum contract value is $50,000 with potential for renewal over two additional years. Proposals are due June 10, 2026.",
       "matched_keywords": ["capacity building", "technical assistance"],
       "match_score": 70,
+      "status": "new"
+    },
+    {
+      "id": "rfp-010",
+      "title": "Kent County Housing Study",
+      "issuer": "Kent County, Maryland (Department of Planning, Housing, and Zoning)",
+      "source": "Kent County MD Request for Proposal page",
+      "state": "MD",
+      "sector": "Economic Development",
+      "value": 75000,
+      "due_date": "2026-06-08",
+      "posted_date": "2026-05-05",
+      "url": "https://www.kentcounty.com/government/request_for_proposal",
+      "summary": "Kent County is seeking a qualified vendor to develop a comprehensive housing study analyzing housing supply, affordability, accessibility, and future demand across the county and its five municipalities. The work includes stakeholder and community engagement and produces strategic, actionable housing goals tied to economic development. Contract value is not stated in the posting and is estimated here; proposals are due by email on June 8, 2026 at 11:59 PM EST.",
+      "matched_keywords": ["strategic planning", "needs assessment", "community development"],
+      "match_score": 79,
       "status": "new"
     }
   ]
