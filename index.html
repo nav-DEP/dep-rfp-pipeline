@@ -802,8 +802,13 @@ body {
       </div>
 
       <div class="settings-card full">
-        <h3>Service Keywords (Include) <span style="font-weight:normal;color:var(--grey-light);font-size:11px;text-transform:none;letter-spacing:normal;">&mdash; an RFP must match at least one to be flagged</span></h3>
-        <div class="settings-list" id="settings-keywords-include"></div>
+        <h3>Service Keywords &mdash; Tier 1 <span style="font-weight:normal;color:var(--grey-light);font-size:11px;text-transform:none;letter-spacing:normal;">&mdash; higher weight in the match score; subject to change</span></h3>
+        <div class="settings-list" id="settings-keywords-tier1"></div>
+      </div>
+
+      <div class="settings-card full">
+        <h3>Service Keywords &mdash; Tier 2 <span style="font-weight:normal;color:var(--grey-light);font-size:11px;text-transform:none;letter-spacing:normal;">&mdash; an RFP must match at least one keyword from either tier to be flagged</span></h3>
+        <div class="settings-list" id="settings-keywords-tier2"></div>
       </div>
 
       <div class="settings-card full">
@@ -850,7 +855,9 @@ const CONFIG = {
   search_criteria: {
     states: ["DC", "MD", "VA", "DE", "PA"],
     sectors: ["Health & Human Services", "Economic Development", "Workforce & Education", "Environment", "Children, Youth & Families"],
-    keywords_include: ["consulting", "advisory", "technical assistance", "evaluation", "grant writing", "grant management", "program design", "capacity building", "strategic planning", "leadership development", "coaching", "organizational assessment", "needs assessment"],
+    keywords_include_tier1: ["strategic planning", "needs assessment", "community engagement", "capacity building", "cross-sector collaboration"],
+    keywords_include_tier2: ["consulting", "advisory", "technical assistance", "evaluation", "grant writing", "grant management", "program design", "leadership development", "coaching", "organizational assessment"],
+    keywords_include: ["strategic planning", "needs assessment", "community engagement", "capacity building", "cross-sector collaboration", "consulting", "advisory", "technical assistance", "evaluation", "grant writing", "grant management", "program design", "leadership development", "coaching", "organizational assessment"],
     keywords_exclude: ["construction", "IT staffing", "software development", "hardware", "janitorial", "landscaping", "uniform", "supplies only", "goods only"],
     min_contract_value: 20000,
     min_match_score: 60
@@ -1081,8 +1088,10 @@ function renderSettings() {
     CONFIG.search_criteria.states.map(s => `<span class="pill state">${s}</span>`).join("");
   document.getElementById("settings-sectors").innerHTML =
     CONFIG.search_criteria.sectors.map(s => `<span class="pill">${s}</span>`).join("");
-  document.getElementById("settings-keywords-include").innerHTML =
-    CONFIG.search_criteria.keywords_include.map(k => `<span class="pill">${k}</span>`).join("");
+  document.getElementById("settings-keywords-tier1").innerHTML =
+    CONFIG.search_criteria.keywords_include_tier1.map(k => `<span class="pill" style="background:var(--gold);color:#4A3800;">${k}</span>`).join("");
+  document.getElementById("settings-keywords-tier2").innerHTML =
+    CONFIG.search_criteria.keywords_include_tier2.map(k => `<span class="pill">${k}</span>`).join("");
   document.getElementById("settings-keywords-exclude").innerHTML =
     CONFIG.search_criteria.keywords_exclude.map(k => `<span class="pill exclude">${k}</span>`).join("");
   document.getElementById("settings-min-value").textContent = "$" + CONFIG.search_criteria.min_contract_value.toLocaleString();
