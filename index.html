@@ -751,9 +751,9 @@ body {
       <div class="sort-control">
         <span>Sort by:</span>
         <select id="sort">
+          <option value="posted" selected>Recently Added</option>
           <option value="score">Match score</option>
           <option value="due">Due date</option>
-          <option value="posted">Recently posted</option>
           <option value="value-desc">Value (high to low)</option>
         </select>
       </div>
@@ -926,7 +926,7 @@ const SEED_DATA = {
 };
 
 let rfps = [];
-const filters = { search: "", state: "", sector: "", status: "", score: 0, sort: "score" };
+const filters = { search: "", state: "", sector: "", status: "", score: 0, sort: "posted" };
 
 // Helpers
 function fmtMoney(n) {
