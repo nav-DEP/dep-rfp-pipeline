@@ -463,6 +463,7 @@ body {
 .status-pill.new { background: var(--gold); color: #4A3800; }
 .status-pill.interested { background: #D6EFFC; color: #1A6B8C; }
 .status-pill.pursuing { background: #C5EBC5; color: #155A24; }
+.status-pill.in_progress { background: #FFE3C2; color: #8A4B00; }
 .status-pill.passed { background: #E5E5E5; color: var(--grey-light); }
 
 .rfp-link {
@@ -657,7 +658,7 @@ body {
     </div>
     <div class="last-scan">
       <div class="label">Last Scan</div>
-      <div class="value" id="last-scan-time">July 30, 2026 - 9:30 AM</div>
+      <div class="value" id="last-scan-time">Loading&hellip;</div>
     </div>
   </div>
   <div class="tabs">
@@ -727,6 +728,7 @@ body {
         <option value="new">New</option>
         <option value="interested">Interested</option>
         <option value="pursuing">Pursuing</option>
+        <option value="in_progress">In Progress</option>
         <option value="passed">Passed</option>
       </select>
     </div>
@@ -911,9 +913,9 @@ const CONFIG = {
   scan_schedule: { frequency: "daily", time_local: "09:15", backward_scan_days_on_first_run: 14 }
 };
 
-/// Seed dataset (most recent scan on 2026-07-16, daily run at 09:15 AM; scores reweighted 2026-07-16)
+/// Seed dataset (most recent scan on 2026-08-24, scan #59; scores reweighted 2026-07-16)
 const SEED_DATA = {
-  last_updated: "2026-08-06T10:18:00-04:00",
+  last_updated: "2026-08-24T10:45:00-04:00",
   rfps: [
     { id: "rfp-001", title: "From Insight to Action: Health Equity Research That Meets This Moment", issuer: "Robert Wood Johnson Foundation", source: "RWJF Active Funding Opportunities", state: "Multi", sector: "Health & Human Services", value: 500000, due_date: "2026-07-27", posted_date: "2026-04-27", url: "https://www.rwjf.org/en/grants/active-funding-opportunities/2026/from-insight-to-action-health-equity-research-that-meets-this-moment.html", summary: "Robert Wood Johnson Foundation seeks proposals for community-rooted, action-oriented health equity research projects. The work involves equitable community partnerships, evaluation, and systems-change recommendations tied to RWJF's seven prioritized systems. Award size is up to $500,000 per project with full proposals due July 27, 2026.", matched_keywords: ["community engagement", "evaluation", "program design", "advisory"], match_score: 80, status: "new" },
     { id: "rfp-002", title: "General Support for Program Evaluation and Related Services", issuer: "Enterprise Community Partners", source: "Enterprise Community Partners Grants & RFPs", state: "Multi", sector: "Economic Development", value: 250000, due_date: "2026-05-28", posted_date: "2026-04-30", url: "https://www.enterprisecommunity.org/grants-and-rfps/enterprise-initiates-general-support-program-evaluation-and-related-services", summary: "Enterprise Community Partners is selecting evaluation partners to conduct formative, process, and summative evaluations across its housing and community development portfolio. Scope also includes evaluation-related training, technical assistance, and capacity support for grantees and internal staff. Proposals were due May 28, 2026 -- deadline has now passed.", matched_keywords: ["capacity building", "evaluation", "technical assistance", "advisory"], match_score: 80, status: "new" },
@@ -929,7 +931,10 @@ const SEED_DATA = {
     { id: "rfp-012", title: "Include Me Program Evaluation", issuer: "The Arc of Pennsylvania", source: "The Arc of Pennsylvania (Breaking News RFP posting)", state: "PA", sector: "Children, Youth & Families", value: 35000, due_date: "2026-07-31", posted_date: "2026-04-07", url: "https://thearcpa.org/new-rfp-include-me-program-evaluation/", summary: "The Arc of Pennsylvania is seeking an external evaluator to assess the data collection tools and processes used in its Include Me program, which supports inclusive education for students with intellectual and developmental disabilities across the state. The work runs from September 1 to November 1, 2026, with questions accepted through July 17 and proposals due July 31, 2026. The contract value is not stated in the posting and is estimated here, and the scope is a narrow evaluation of internal data tools, so confirm budget and fit with Due East's evaluation service line before pursuing.", matched_keywords: ["evaluation"], match_score: 48, status: "new" },
     { id: "rfp-013", title: "Citywide Strategic Planning (RFP-25-26-077)", issuer: "City of Danville, Virginia", source: "City of Danville Procurement", state: "VA", sector: "Economic Development", value: 125000, due_date: "2026-07-23", posted_date: "2026-06-12", url: "https://danville-va.gov/DocumentCenter/View/39291/RFP-25-26-077-Citywide-Strategic-Planning-Final-Post-June-12-2026", summary: "The City of Danville, Virginia is seeking a firm to develop a citywide strategic plan that sets three to five year priorities for the city and its sixteen departments. The work includes bilingual community engagement in English and Spanish, department level action plans tied to city council priorities and the comprehensive plan, and a system to track progress over time. Proposals are due July 23, 2026, with a pre-proposal meeting held June 25, 2026. The contract value is not stated in the posting and is estimated here, so confirm budget and fit with Due East's public sector strategy and advisory service line before pursuing.", matched_keywords: ["strategic planning", "community engagement"], match_score: 76, status: "new" },
     { id: "rfp-014", title: "Request for Proposal: Strategic Planning Facilitator and Consultant", issuer: "Scenic Rivers Land Trust", source: "Scenic Rivers Land Trust website (public web search)", state: "MD", sector: "Environment", value: 40000, due_date: "2026-07-31", posted_date: "2026-06-29", url: "https://www.srlt.org/request-for-proposal-strategic-planning-facilitator-and-consultant/", summary: "Scenic Rivers Land Trust, the leading conservation nonprofit serving Anne Arundel County, Maryland, is seeking a strategic planning facilitator to guide an organization wide planning process looking ahead to 2030. The scope covers stakeholder interviews with board, staff, donors, and partners, part of a board retreat on September 12, 2026, and a final strategic framework with an implementation roadmap due by early 2027. Proposals are due July 31, 2026. Contract value is not stated in the posting and is estimated here based on comparable nonprofit strategic planning engagements, so confirm budget with the Executive Director before pursuing.", matched_keywords: ["strategic planning", "capacity building", "community engagement", "cross-sector collaboration", "consulting", "facilitation"], match_score: 84, status: "new" },
-    { id: "rfp-015", title: "Strategic Plan and Quality Improvement Consultant", issuer: "Dorchester County, Maryland Health Department", source: "eMaryland Marketplace Advantage (eMMA), BPM ID 58036", state: "MD", sector: "Health & Human Services", value: null, due_date: "2026-08-13", posted_date: "2026-07-15", url: "https://vendors-emma.maryland.gov/page.aspx/en/bpm/process_manage_extranet/93401?uidP2a7680-26e7-453b-aad4-758b07e2e9b2", summary: "Dorchester County's Health Department is seeking a consultant to develop a strategic plan and support quality improvement work. Surfaced via a forwarded eMMA notice rather than the automated feed; Aris reviewed it, called it a good fit, and has already opened a dialogue with the procurement officer. No detailed scope document has been released yet beyond the solicitation summary.", matched_keywords: ["strategic planning", "consulting"], match_score: 56, status: "in_progress" }
+    { id: "rfp-015", title: "Strategic Plan and Quality Improvement Consultant", issuer: "Dorchester County, Maryland Health Department", source: "eMaryland Marketplace Advantage (eMMA), BPM ID 58036", state: "MD", sector: "Health & Human Services", value: null, due_date: "2026-08-13", posted_date: "2026-07-15", url: "https://vendors-emma.maryland.gov/page.aspx/en/bpm/process_manage_extranet/93401?uidP2a7680-26e7-453b-aad4-758b07e2e9b2", summary: "Dorchester County's Health Department is seeking a consultant to develop a strategic plan and support quality improvement work. Surfaced via a forwarded eMMA notice rather than the automated feed; Aris reviewed it, called it a good fit, and has already opened a dialogue with the procurement officer. No detailed scope document has been released yet beyond the solicitation summary.", matched_keywords: ["strategic planning", "consulting"], match_score: 56, status: "in_progress" },
+    { id: "rfp-016", title: "FY27 Community Needs Assessment", issuer: "Queen Anne's County Department of Housing and Family Services", source: "Queen Anne's County Community Partnerships for Children and Families (direct notice, forwarded by Lauren Maddox)", state: "MD", sector: "Children, Youth & Families", value: 40000, due_date: "2026-09-16", posted_date: "2026-08-18", url: "https://www.communitypartnerships.info/grants/", summary: "Queen Anne's County is seeking a consultant to conduct a comprehensive Community Needs Assessment covering housing, economic opportunity, demographic trends, projected growth, and overall community well-being. The work runs through the county's Local Management Board and Division of Housing and calls for practical, data-driven recommendations to guide future investment and planning. Budget is $40,000 with proposals due September 16, 2026 at 4:00 PM.", matched_keywords: ["needs assessment"], match_score: 62, status: "new" },
+    { id: "rfp-017", title: "Strategic Planning Consultant (five year strategic plan)", issuer: "Potomac Conservancy", source: "Direct lead, RFP confirmed by Potomac Conservancy VP Katie Blackman", state: "MD", sector: "Environment", value: null, due_date: null, posted_date: "2026-08-10", url: "https://potomac.org/", summary: "Potomac Conservancy has released a strategic planning RFP to guide the organization's direction over the next five years. Lauren Maddox contacted President Hedrick Belin on August 10, and Vice President Katie Blackman confirmed the RFP and met with the team on August 17. Bess Langbein asked on August 17 that this be tracked in the pipeline. The public RFP posting, formal due date, and budget still need to be captured.", matched_keywords: ["strategic planning"], match_score: 48, status: "in_progress" },
+    { id: "rfp-018", title: "Business Analysis, Project and Talent Management Consulting Services (RFP 26-700)", issuer: "County of Frederick, Maryland", source: "OpenGov Procurement notification (Addendum #2), originally via eMMA", state: "MD", sector: "Workforce & Education", value: null, due_date: "2026-09-09", posted_date: "2026-07-15", url: "https://frederickcountymd.gov/1116/Open-Bids---Current-Solicitations", summary: "Frederick County is seeking consulting services covering business analysis, project management, and talent management. Addendum #2 pushed the proposal deadline back roughly two weeks to September 9, 2026 at 3:00 PM. Vendor registration on the county's OpenGov portal reportedly takes two days, so registration should be completed well in advance. Isabel Hardesty is reviewing the scope and Aris is securing the recording of the July 30 pre-proposal conference.", matched_keywords: ["consulting"], match_score: 54, status: "in_progress" },
   ]
 };
 
@@ -938,21 +943,27 @@ const filters = { search: "", state: "", sector: "", status: "", score: 0, sort:
 
 // Helpers
 function fmtMoney(n) {
+  if (n == null || isNaN(n)) return "Not stated";
   if (n >= 1000000) return "$" + (n / 1000000).toFixed(2).replace(/\.?0+$/, "") + "M";
   if (n >= 1000) return "$" + Math.round(n / 1000) + "K";
   return "$" + n;
 }
 function fmtDate(s) {
+  if (!s) return "TBC";
   const d = new Date(s + "T00:00:00");
+  if (isNaN(d)) return "TBC";
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 }
 function daysUntil(s) {
+  if (!s) return null;
   const today = new Date(); today.setHours(0,0,0,0);
   const d = new Date(s + "T00:00:00");
+  if (isNaN(d)) return null;
   return Math.round((d - today) / 86400000);
 }
 function dueClass(s) {
   const d = daysUntil(s);
+  if (d === null) return "";
   if (d <= 7) return "due-soon";
   if (d <= 14) return "due-this-week";
   return "";
@@ -963,11 +974,12 @@ function scoreClass(n) {
   return "low";
 }
 function statusLabel(s) {
-  return { new: "New", interested: "Interested", pursuing: "Pursuing", passed: "Passed" }[s] || s;
+  return { new: "New", interested: "Interested", pursuing: "Pursuing", in_progress: "In Progress", passed: "Passed" }[s] || s;
 }
 function cycleStatus(current) {
-  const order = ["new", "interested", "pursuing", "passed"];
-  return order[(order.indexOf(current) + 1) % order.length];
+  const order = ["new", "interested", "pursuing", "in_progress", "passed"];
+  const i = order.indexOf(current);
+  return order[(i === -1 ? 0 : i + 1) % order.length];
 }
 
 function applyFilters() {
@@ -984,7 +996,11 @@ function applyFilters() {
     return true;
   });
   if (filters.sort === "score") filtered.sort((a, b) => b.match_score - a.match_score);
-  else if (filters.sort === "due") filtered.sort((a, b) => new Date(a.due_date) - new Date(b.due_date));
+  else if (filters.sort === "due") filtered.sort((a, b) => {
+    const av = a.due_date ? new Date(a.due_date).getTime() : Infinity;
+    const bv = b.due_date ? new Date(b.due_date).getTime() : Infinity;
+    return av - bv;
+  });
   else if (filters.sort === "posted") filtered.sort((a, b) => new Date(b.posted_date) - new Date(a.posted_date));
   else if (filters.sort === "value-desc") filtered.sort((a, b) => b.value - a.value);
   return filtered;
@@ -1000,7 +1016,7 @@ function render() {
   }
   container.innerHTML = filtered.map(r => {
     const d = daysUntil(r.due_date);
-    const dueText = d < 0 ? "Past due" : d === 0 ? "Due today" : d === 1 ? "Due tomorrow" : `${d} days out`;
+    const dueText = d === null ? "date to confirm" : d < 0 ? "Past due" : d === 0 ? "Due today" : d === 1 ? "Due tomorrow" : `${d} days out`;
     return `
     <div class="rfp-card">
       <div class="rfp-top">
