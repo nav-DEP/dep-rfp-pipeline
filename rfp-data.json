@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-31T10:05:30-04:00",
-  "scan_count": 68,
+  "last_updated": "2026-09-01T10:05:05-04:00",
+  "scan_count": 69,
   "rfps": [
     {
       "id": "rfp-001",
@@ -353,6 +353,24 @@
         "consulting"
       ],
       "match_score": 54,
+      "status": "in_progress"
+    },
+    {
+      "id": "rfp-019",
+      "title": "Strategic Planning Services",
+      "issuer": "Cecil County Public Library",
+      "source": "Direct RFP notice from the issuer (Gmail, forwarded internally), also posted on the library's website Newsroom",
+      "state": "MD",
+      "sector": "Economic Development",
+      "value": null,
+      "due_date": "2026-09-18",
+      "posted_date": "2026-08-27",
+      "url": "https://www.cecilcountylibrary.org/media/document/1974",
+      "summary": "Cecil County Public Library, an award winning six branch system serving about 104,000 residents in northeastern Maryland, is seeking a consultant to lead a new strategic planning process. Due East already has an active relationship in Cecil County through work with the county's Local Management Board and has expressed strong interest in pursuing the engagement. Questions are due September 10, 2026, with proposals due by email September 18, 2026 at 5 p.m. EDT.",
+      "matched_keywords": [
+        "strategic planning"
+      ],
+      "match_score": 58,
       "status": "in_progress"
     }
   ]
