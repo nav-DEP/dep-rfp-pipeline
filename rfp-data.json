@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-01T10:05:05-04:00",
-  "scan_count": 69,
+  "last_updated": "2026-09-02T11:31:50-04:00",
+  "scan_count": 70,
   "rfps": [
     {
       "id": "rfp-001",
@@ -345,10 +345,10 @@
       "state": "MD",
       "sector": "Workforce & Education",
       "value": null,
-      "due_date": "2026-09-09",
+      "due_date": "2026-10-01",
       "posted_date": "2026-07-15",
       "url": "https://frederickcountymd.gov/1116/Open-Bids---Current-Solicitations",
-      "summary": "Frederick County is seeking consulting services covering business analysis, project management, and talent management. Addendum #2 pushed the proposal deadline back roughly two weeks to September 9, 2026 at 3:00 PM, and vendor registration on the county's OpenGov portal reportedly takes two days, so registration should be completed well in advance. Due East is reviewing the scope and securing the recording of the July 30 pre-proposal conference.",
+      "summary": "Frederick County is seeking consulting services covering business analysis, project management, and talent management. Addendum #3, issued September 1, 2026, pushed the proposal deadline out again to October 1, 2026. Due East is proceeding with the proposal and has set an internal drafting deadline of September 10 to keep pace ahead of the extended date.",
       "matched_keywords": [
         "consulting"
       ],
