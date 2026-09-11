@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-10T21:05:31-04:00",
-  "scan_count": 78,
+  "last_updated": "2026-09-11T10:28:59-04:00",
+  "scan_count": 79,
   "rfps": [
     {
       "id": "rfp-001",
@@ -384,13 +384,13 @@
       "due_date": "2026-09-11",
       "posted_date": "2026-09-03",
       "url": "https://vendors-emma.maryland.gov/page.aspx/en/bpm/process_manage_extranet/94705",
-      "summary": "The State of Maryland has posted a solicitation for strategic planning and facilitation support for an overdose response strategy. The main commodity listed is strategic planning consultation services. Due East is reviewing the opportunity internally, including whether the firm can meet a stated ten year specialized experience requirement in addiction policy or overdose prevention. Proposals are due September 11, 2026.",
+      "summary": "The State of Maryland has posted a solicitation for strategic planning and facilitation support for an overdose response strategy. The main commodity listed is strategic planning consultation services. Due East has decided to move forward with a proposal, citing relevant behavioral health experience, despite the posting's stated ten year specialized experience requirement in addiction policy or overdose prevention being a stretch. Proposals are due September 11, 2026.",
       "matched_keywords": [
         "strategic planning",
         "facilitation"
       ],
       "match_score": 56,
-      "status": "new"
+      "status": "in_progress"
     }
   ]
 }
