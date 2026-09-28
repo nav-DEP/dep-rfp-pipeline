@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-28T09:44:29-04:00",
-  "scan_count": 92,
+  "last_updated": "2026-09-28T10:35:50-04:00",
+  "scan_count": 93,
   "rfps": [
     {
       "id": "rfp-001",
@@ -391,6 +391,27 @@
       ],
       "match_score": 56,
       "status": "in_progress"
+    },
+    {
+      "id": "rfp-021",
+      "title": "Watershed Restoration Outreach and Technical Assistance Services",
+      "issuer": "State of Maryland (issuing agency not named in posting)",
+      "source": "RFPMart (commercial RFP marketplace)",
+      "state": "MD",
+      "sector": "Environment",
+      "value": null,
+      "due_date": "2026-10-15",
+      "posted_date": "2026-09-19",
+      "url": "https://www.rfpmart.com/1174603-usa-maryland-outreach-and-technical-assistant-services-rfp.html",
+      "summary": "A Maryland state agency is seeking outreach and technical assistance support for watershed restoration grant programs. The work involves identifying and engaging community based organizations, assessing their readiness to receive funding, and developing capacity building workshops on grant writing and grant management. Contract value is not stated in the posting; confirm it meets Due East's 20,000 dollar minimum before pursuing. Proposals are due October 15, 2026.",
+      "matched_keywords": [
+        "capacity building",
+        "technical assistance",
+        "grant writing",
+        "grant management"
+      ],
+      "match_score": 60,
+      "status": "new"
     }
   ]
 }
