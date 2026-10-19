@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-19T13:50:31+00:00",
-  "scan_count": 110,
+  "last_updated": "2026-10-19T14:16:05+00:00",
+  "scan_count": 111,
   "rfps": [
     {
       "id": "rfp-001",
@@ -411,6 +411,26 @@
         "grant management"
       ],
       "match_score": 60,
+      "status": "new"
+    },
+    {
+      "id": "rfp-022",
+      "title": "Storm Smart Chesapeake Technical Assistance: Bridgeville Nature-Based Stormwater Charrette",
+      "issuer": "Chesapeake Bay Trust",
+      "source": "Chesapeake Bay Trust Bidder Opportunities",
+      "state": "DE",
+      "sector": "Environment",
+      "value": 20000,
+      "due_date": "2026-11-06",
+      "posted_date": "2026-09-25",
+      "url": "https://cbtrust.org/wp-content/uploads/RFP_Bridgeville_Charrette_FINAL.pdf",
+      "summary": "The Chesapeake Bay Trust is seeking a consultant to plan, facilitate, and document a community charrette on nature-based stormwater solutions for the Town of Bridgeville, Delaware. The work includes stakeholder engagement, a project opportunity map, a prioritized implementation matrix, and a funding sources matrix, and GIS experience is required. Bids may not exceed 20,000 dollars, which is exactly Due East's minimum, so the margin is thin. Proposals are due November 6, 2026 at 4:00 p.m. Eastern.",
+      "matched_keywords": [
+        "facilitation",
+        "community engagement",
+        "technical assistance"
+      ],
+      "match_score": 70,
       "status": "new"
     }
   ]
